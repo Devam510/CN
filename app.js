@@ -35,7 +35,7 @@ scanBtn.addEventListener('click', async () => {
     loader.classList.remove('hidden');
 
     try {
-        const response = await fetch('http://localhost:3000/scan', {
+        const response = await fetch('https://cn-yu1y.onrender.com/scan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
