@@ -1,0 +1,240 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #141414;
+    --text-main: #00ff88;
+    --text-muted: #888888;
+    --risk-high: #ff3333;
+    --risk-high-bg: rgba(255, 51, 51, 0.1);
+    --risk-med: #ffaa00;
+    --risk-med-bg: rgba(255, 170, 0, 0.1);
+    --risk-low: #00ff88;
+    --risk-low-bg: rgba(0, 255, 136, 0.1);
+    --border-color: #333333;
+    --font-mono: 'Fira Code', monospace, Courier, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.case-study-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--risk-high);
+    border-left: 4px solid var(--risk-high);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px var(--risk-high-bg);
+}
+
+.card-header {
+    background-color: var(--risk-high-bg);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h2 {
+    color: var(--risk-high);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body p {
+    margin-bottom: 0.5rem;
+}
+
+.card-body strong {
+    color: white;
+}
+
+.scan-section {
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    flex-wrap: wrap;
+}
+
+.prompt {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+input[type="text"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-main);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    outline: none;
+    flex-grow: 1;
+}
+
+button {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+    padding: 0.6rem 1.5rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+button:disabled {
+    border-color: var(--border-color);
+    color: var(--border-color);
+    cursor: not-allowed;
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px dashed var(--text-muted);
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-top: 2px solid var(--text-main);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.results-section h2, .recommendations-section h2 {
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.status-open {
+    color: white;
+    font-weight: bold;
+}
+
+.status-closed {
+    color: var(--text-muted);
+}
+
+.risk-high {
+    color: var(--risk-high);
+    font-weight: bold;
+}
+
+.risk-medium {
+    color: var(--risk-med);
+    font-weight: bold;
+}
+
+.risk-low {
+    color: var(--risk-low);
+}
+
+.recommendations-section {
+    margin-top: 2rem;
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-left: 4px solid var(--risk-high);
+}
+
+#recommendationsList {
+    list-style-type: none;
+}
+
+#recommendationsList li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: white;
+}
+
+#recommendationsList li::before {
+    content: "►";
+    position: absolute;
+    left: 0;
+    color: var(--risk-high);
+}

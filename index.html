@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN Security Breach Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LAN Security Breach Analyzer</h1>
+            <p class="subtitle">Terminal Interface Edition</p>
+        </header>
+
+        <section class="case-study-card">
+            <div class="card-header">
+                <h2>⚠ CASE STUDY: WannaCry 2017</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Vector:</strong> Exploited SMBv1 Protocol (Port 445).</p>
+                <p><strong>Vulnerability:</strong> MS17-010 (EternalBlue exploit).</p>
+                <p><strong>Impact:</strong> Over 200,000 systems infected globally across 150 countries. Systems were encrypted, leading to massive financial and operational disruption.</p>
+                <p><strong>Lesson:</strong> Open critical ports (like 445, 23, 3389) without strict network-level control form the primary vectors for devastating lateral movement inside systems.</p>
+            </div>
+        </section>
+
+        <section class="scan-section">
+            <div class="input-group">
+                <label for="ipAddress" class="prompt">root@analyzer:~# target_ip</label>
+                <input type="text" id="ipAddress" placeholder="e.g., 192.168.1.1 or localhost" autocomplete="off">
+                <button id="scanBtn">Execute Scan</button>
+            </div>
+            
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+                <p>Scanning Network Ports. Please wait...</p>
+            </div>
+        </section>
+
+        <section id="resultsSection" class="results-section hidden">
+            <h2>Scan Results</h2>
+            <div class="table-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>PORT</th>
+                            <th>SERVICE</th>
+                            <th>STATUS</th>
+                            <th>RISK LEVEL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows injected dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="recommendationsSection" class="recommendations-section hidden">
+            <h2>Critical Recommendations</h2>
+            <ul id="recommendationsList">
+                <!-- Recommendations dynamically injected here -->
+            </ul>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
